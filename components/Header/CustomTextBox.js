@@ -19,4 +19,8 @@ export const CssTextField = styled(TextField)({
       borderColor: "#0FE9EF",
     },
   },
+  ".MuiInputBase-root": {
+    backgroundColor: "#33343E",
+    borderRadius: "20px",
+  },
 });
