@@ -23,7 +23,12 @@ const Header = () => {
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <Box sx={{ flex: 0.2 }}>
                 <Link href="/">
-                  <Image src="/logo.svg" height="80px" width="100px" />
+                  <Image
+                    src="/logo.svg"
+                    height="80px"
+                    width="100px"
+                    style={{ cursor: "pointer" }}
+                  />
                 </Link>
               </Box>
               <Box
@@ -48,8 +53,8 @@ const Header = () => {
                       },
                     }}
                     InputProps={{
-                      endAdornment: (
-                        <InputAdornment position="end">
+                      startAdornment: (
+                        <InputAdornment position="start">
                           <SearchIcon sx={{ color: "white" }} />
                         </InputAdornment>
                       ),
@@ -57,19 +62,27 @@ const Header = () => {
                   />
                 </Box>
                 <Box>
-                  <Typography sx={{ fontWeight: 700 }}>Collections</Typography>
+                  <Link href="/collections/0xc12be3fcD247Ead10ec28D69eD612D180B5b40B8">
+                    <Typography sx={{ fontWeight: 700, cursor: "pointer" }}>
+                      Collections
+                    </Typography>
+                  </Link>
                 </Box>
                 <Box>
-                  <Typography sx={{ fontWeight: 700 }}>Stats</Typography>
+                  <Typography sx={{ fontWeight: 700, cursor: "pointer" }}>
+                    Stats
+                  </Typography>
                 </Box>
                 <Box>
-                  <Typography sx={{ fontWeight: 700 }}>Create</Typography>
+                  <Typography sx={{ fontWeight: 700, cursor: "pointer" }}>
+                    Create
+                  </Typography>
                 </Box>
                 <Box>
-                  <AccountCircleIcon />
+                  <AccountCircleIcon sx={{ cursor: "pointer" }} />
                 </Box>
                 <Box>
-                  <AccountBalanceWalletIcon />
+                  <AccountBalanceWalletIcon sx={{ cursor: "pointer" }} />
                 </Box>
               </Box>
             </Box>
