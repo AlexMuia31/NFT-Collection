@@ -13,6 +13,7 @@ import { CssTextField } from "./CustomTextBox";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
+import { client } from "../../lib/sanityClient";
 
 const Header = () => {
   const address = useAddress();
