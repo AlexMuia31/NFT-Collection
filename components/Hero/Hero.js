@@ -1,4 +1,11 @@
-import { Box, Container, Grid, Toolbar, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
@@ -35,6 +42,27 @@ const Hero = () => {
               >
                 Discover, Collect, and sell extraordinary NFTs
               </Typography>
+              <Box>
+                <Button
+                  sx={{
+                    backgroundColor: "#000",
+                    color: "white",
+                    "&:hover": { backgroundColor: "black" },
+                  }}
+                >
+                  Explore
+                </Button>
+                <Button
+                  sx={{
+                    backgroundColor: "#000",
+                    color: "white",
+                    ml: "15px",
+                    "&:hover": { backgroundColor: "black" },
+                  }}
+                >
+                  Create
+                </Button>
+              </Box>
             </Grid>
           </Grid>
         </Box>

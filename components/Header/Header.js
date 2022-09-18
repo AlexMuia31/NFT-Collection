@@ -8,13 +8,29 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { CssTextField } from "./CustomTextBox";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
+import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
 
 const Header = () => {
+  const address = useAddress();
+  // adding users to the database when they connect
+  // This is an immediately invoked functional expression
+  useEffect(() => {
+    if (!address) return;
+    (async () => {
+      const userDoc = {
+        _type: "users",
+        _id: address,
+        _userName: "Unnamed",
+        walletAddress: address,
+      };
+      const result = await client.createIfNotExists(userDoc);
+    })();
+  }, [address]);
+
   return (
     <Box>
       <AppBar sx={{ bgcolor: "#0F1318" }}>
@@ -82,7 +98,7 @@ const Header = () => {
                   <AccountCircleIcon sx={{ cursor: "pointer" }} />
                 </Box>
                 <Box>
-                  <AccountBalanceWalletIcon sx={{ cursor: "pointer" }} />
+                  <ConnectWallet accentColor="#f213a4" colorMode="dark" />
                 </Box>
               </Box>
             </Box>
