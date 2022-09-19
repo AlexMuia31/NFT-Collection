@@ -24,7 +24,6 @@ const Hero = () => {
           layout="fill"
           objectFit="cover"
           objectPosition="center"
-          height="100%"
         />
       </Box>
       <Container maxWidth="xl">
