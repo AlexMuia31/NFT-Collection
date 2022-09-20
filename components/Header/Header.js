@@ -14,9 +14,22 @@ import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
 import { client } from "../../lib/sanityClient";
+import toast, { Toaster } from "react-hot-toast";
 
 const Header = () => {
   const address = useAddress();
+
+  const welcomeUser = (userName, toastHandler = toast) => {
+    toastHandler.success(
+      `Welcome back ${userName == "Unnamed" ? `${userName}` : ""}!`,
+      {
+        style: {
+          background: "#04111d",
+          color: "#fff",
+        },
+      }
+    );
+  };
   // adding users to the database when they connect
   // This is an immediately invoked functional expression
   useEffect(() => {
@@ -29,11 +42,13 @@ const Header = () => {
         walletAddress: address,
       };
       const result = await client.createIfNotExists(userDoc);
+      welcomeUser(result.userName);
     })();
   }, [address]);
 
   return (
     <Box>
+      <Toaster position="top-center" reverseOrder={false} />
       <AppBar sx={{ bgcolor: "#0F1318" }}>
         <Toolbar>
           <Container maxWidth="xl">
